@@ -1,0 +1,67 @@
+// TODO
+
+Description
+In this project, you will build a “microblogging” website that allows users to share brief
+insights about their craft, hobby, or profession.
+User, post, and login data for this project will be stored on a back-end server designed
+for this project, called MicroblogLite.
+Your app will provide visitors with the option to create a user account and new posts, and
+you may choose to add a feature for users to “like” posts, but this is as complicated as it
+will get. (The MicroblogLite API does not provide functionality for users to “follow” each
+other or to comment on posts.)
+Your app will be a “walled garden.” That is, in order to view any user content, a visitor to
+the website must first log in as a user.
+You will use what you know about HTML, CSS, and JavaScript to complete this project.
+You will also need to flex your research skills to solve any blockers you run into.
+But don’t worry: some code and guidance will be provided to get you started! Be sure to
+read this entire document and the source code in the starter project! They include lots of
+things which will save you a lot of time and effort!
+
+http://microbloglite.us-east-2.elasticbeanstalk.com/docs/
+
+home
+CSS
+JavaScript
+share
+
+pages
+- Home 
+    - App name and description - Butterfly the app for light weight messages with friends.
+    - Login
+    - Registratoin
+- Posts/Messages
+    -reject users who are not authenticated - redirect to home/login
+    - display all messages from all users
+    - include
+        - content
+        - author
+        - timestamp
+- User Profile and Create Post Page
+    - enforce auth and redirect like we did for posts page
+    - logout button
+    - new message form 
+    - link back to posts/messages page
+
+OPTIONAL BONUS EXTRA CREDIT
+- Like button on every message
+    - shows if we have liked it or not and count of likes
+    - unlike or toggle like
+- delete post button only if logged in user is the author
+- sort by   
+    -by like count (popularity)
+    -by author name
+- profile icons using Gravatar
+- edit user profile (bio)    
+- boostrap icons peppered throughout
+
+COMMANDS USED TO CREATE INITIAL FILES
+touch index.html messages.html profile.html new.html login.html signup.html
+mkdir js css img
+cd js
+touch main.js index.js login.js messages.js new.js profile.js signup.js
+cd ../css
+touch main.css index.css login.css messages.css new.css profile.css signup.css
+cd ../img
+echo > logo.svg
+history
+history >> todo.txt
