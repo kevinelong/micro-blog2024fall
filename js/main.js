@@ -17,6 +17,10 @@ curl -X 'POST' \
 async function signUp(username, fullName, password){
     const response = await fetch(BASE_URL + "/api/users", {
         method: "POST",
+        headers: {
+            'accept' : 'application/json',
+            'Content-Type' : 'application/json'
+        },
         // body: `{"username":"${username}","fullName":"${fullName}","password":"${password}"}`
         body: JSON.stringify({
             "username": username,
@@ -28,10 +32,11 @@ async function signUp(username, fullName, password){
     //TODO check for error response status codes
     
     const object = await response.json();
+    console.log(object);
     return object;
 }
-const user = signUp("dandy", "Yankee Poodle Dandy", "bone");
-console.log(user);
+//TEST - MUST CHANGE FIRST PARAMETER USERNAME TO SOMETHING UNIQUE EVERY TIME
+signUp("dandy2", "Yankee Poodle Dandy", "bone");
 
 //login and store username and token received
 
