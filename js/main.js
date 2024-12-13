@@ -66,12 +66,24 @@ async function login(username, password) {
 }
 
 // ALL THE OTHERS NEED A TOKEN IN THE HEADER
-
+function headersWithAuth() {
+    //SAME AS NO AUTH BUT WITH AUTH ADDED
+    return { 
+        ...NO_AUTH_HEADERS, 
+        'Authorization': `Bearer ${localStorage.token}`,
+    }
+}
 // get secure list of message using token
+async function getMessageList() {
+    const LIMIT_PER_PAGE = 1000;
+    const OFFSET_PAGE = 0;
+    const queryString = `?limit=${LIMIT_PER_PAGE}&offset=${OFFSET_PAGE}`;
 
-// r = await fetch(url, {
-//     method: "GET",
-//     headers: {
-//         Authorization: `Bearer ${loginData.token}`,
-//     },
-// })
+    const response = await fetch(
+        BASE_URL + "/api/posts" + queryString, {
+        method: "GET",
+        headers: headersWithAuth(),
+    });
+    const object = await response.json();
+    return object;
+}
