@@ -1,4 +1,5 @@
 const BASE_URL = "http://microbloglite.us-east-2.elasticbeanstalk.com";
+
 const NO_AUTH_HEADERS = { 'accept': 'application/json', 'Content-Type': 'application/json' };
 // ONLY 2 - INSECURE TOKEN FREE ACTIONS
 
@@ -83,6 +84,17 @@ async function getMessageList() {
         BASE_URL + "/api/posts" + queryString, {
         method: "GET",
         headers: headersWithAuth(),
+    });
+    const object = await response.json();
+    return object;
+}
+
+async function sendText(text){
+    const response = await fetch(
+        BASE_URL + "/api/posts", { // endpoint for messages/posts
+        method: "POST", //CREATE
+        headers: headersWithAuth(),
+        body: `{"text":"${text}"}` //make json string by hand instead of stringify
     });
     const object = await response.json();
     return object;
